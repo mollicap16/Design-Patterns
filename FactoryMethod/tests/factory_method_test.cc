@@ -2,8 +2,9 @@
 #include <vector>
 #include <gtest/gtest.h>
 #include <FactoryMethod.h>
+#include <FactoryMethodApplication.h>
 
-TEST(AbstractFactoryTest, AbstractFactoryDifferentPlatformTest){
+TEST(FactoryMethodTest, FactoryMethodTest1){
   std::vector<Stooge*> roles;
 
   roles.push_back(Stooge::MakeStooge(1));
@@ -14,6 +15,15 @@ TEST(AbstractFactoryTest, AbstractFactoryDifferentPlatformTest){
   for(auto const& itr : roles){
     itr->SlapStick();
   }
+}
+
+TEST(FactoryMethodTest, AbstractFactory2) {
+  //Client's customization of the Framework
+  MyApplication myApp;
+
+  myApp.NewDocument("foo");
+  myApp.NewDocument("bar");
+  myApp.ReportDocs();
 }
 
 int main(int argc, char **argv) {
